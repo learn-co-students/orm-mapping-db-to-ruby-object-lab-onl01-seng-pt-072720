@@ -94,7 +94,6 @@ class Student
       WHERE name = ?
       LIMIT 1 
     SQL
-
     DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first 
@@ -105,7 +104,6 @@ class Student
       INSERT INTO students (name, grade) 
       VALUES (?, ?)
     SQL
-
     DB[:conn].execute(sql, self.name, self.grade)
   end
   
@@ -117,7 +115,6 @@ class Student
       grade TEXT
     )
     SQL
-
     DB[:conn].execute(sql)
   end
 
